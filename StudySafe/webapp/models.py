@@ -19,6 +19,9 @@ def __str__(self):
     return self.hkuid
 
 class CustomUser(AbstractUser):
-    pass
+    email = models.EmailField(unique=True, blank=True, null = True)
+    first_name = models.CharField(max_length = 20, blank = True, null = True)
+    last_name = models.CharField(max_length = 20, blank = True, null = True)
+    # REQUIRED_FIELDS = ['email', 'first_name', 'last_name']
     def __str__(self):
-        return self.username
+        return "{}".format(self.username)
