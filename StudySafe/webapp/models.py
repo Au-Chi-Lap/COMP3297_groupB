@@ -1,5 +1,6 @@
 from unicodedata import name
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 class venue(models.Model):
     venuecode = models.CharField(max_length=20)
@@ -16,3 +17,11 @@ def __str__(self):
 
 def __str__(self):
     return self.hkuid
+
+class CustomUser(AbstractUser):
+    email = models.EmailField(unique=True, blank=True, null = True)
+    first_name = models.CharField(max_length = 20, blank = True, null = True)
+    last_name = models.CharField(max_length = 20, blank = True, null = True)
+    # REQUIRED_FIELDS = ['email', 'first_name', 'last_name']
+    def __str__(self):
+        return "{}".format(self.username)
