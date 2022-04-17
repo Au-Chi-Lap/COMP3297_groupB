@@ -19,7 +19,9 @@ def __str__(self):
     return self.hkuid
 
 class CustomUser(AbstractUser):
-    email = models.EmailField(unique=True, blank=True, null = True)
+    is_device = models.BooleanField(default=False)
+    is_taskforce = models.BooleanField(default=False)
+    email = models.EmailField(unique=False, blank=True,null = True)
     first_name = models.CharField(max_length = 20, blank = True, null = True)
     last_name = models.CharField(max_length = 20, blank = True, null = True)
     # REQUIRED_FIELDS = ['email', 'first_name', 'last_name']
