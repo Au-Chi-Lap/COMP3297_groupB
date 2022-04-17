@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-@n!zdatxsyh49d$y(+%==p@ml3%160(bic*hzqfl=-eu4t51^w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://git.heroku.com/serene-temple-58422.git','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['young-lowlands-48457.herokuapp.com','localhost','127.0.0.1']
 
 AUTH_USER_MODEL = 'webapp.CustomUser'
 
