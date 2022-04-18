@@ -17,8 +17,19 @@ class venueList(APIView):
         venue1 = venue.objects.all()
         serializer = venueSerializer(venue1, many=True)
         return Response(serializer.data)
-    def post(self):
-        pass 
+    def post(self,request):
+        data = {
+            'venuecode': request.data.get('venuecode'),
+            'location': request.data.get('location'),
+            'type': request.data.get('type'),
+            'capacity': request.data.get('capacity'),
+        }
+        serializer=venueSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class hkumemberList(APIView):
 
@@ -26,5 +37,15 @@ class hkumemberList(APIView):
         hkumember1 = hkumember.objects.all()
         serializer = hkumemberSerializer(hkumember1, many=True)
         return Response(serializer.data)
-    def post(self):
-        pass 
+    def post(self,request):
+        data = {
+            'hkuid': request.data.get('hkuid'),
+            'name': request.data.get('name'),
+        }
+        serializer=hkumemberSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+         
