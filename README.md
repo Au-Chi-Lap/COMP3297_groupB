@@ -1,3 +1,4 @@
+
 # COMP3297_groupB
 ## Notes
 
@@ -9,9 +10,8 @@
 	    https://young-lowlands-48457.herokuapp.com/
 - already added u guys in heroku app
 	- if u dont see it in ur dashboard pls send me ur email
-	- for viewing data in database, use this link:  
-	
-	  https://heroku-data-explorer.herokuapp.com/#/  
+	-  ~~for viewing data in database, use this link:   https://heroku-data-explorer.herokuapp.com/#/~~   
+	     apparently it expired nvm
 	
 
 		~~no clue how pgadmin works~~
