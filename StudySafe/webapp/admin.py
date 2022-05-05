@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
 # from .forms import CustomUserChangeForm, CustomUserCreationForm
-from .models import venue, hkumember, CustomUser
+from .models import venue, hkumember, CustomUser, entryrecord
 # Register your models here.
 
 class CustomUserAdmin(UserAdmin):
@@ -56,4 +56,5 @@ class CustomUserAdmin(UserAdmin):
 
 admin.site.register(venue)
 admin.site.register(hkumember)
+admin.site.register(entryrecord)
 admin.site.register(CustomUser, CustomUserAdmin)

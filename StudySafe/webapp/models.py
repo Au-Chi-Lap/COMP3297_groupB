@@ -7,16 +7,23 @@ class venue(models.Model):
     location = models.CharField(max_length=150)
     type = models.CharField(max_length=2)
     capacity = models.IntegerField()
+    def __str__(self):
+        return self.venuecode
 
 class hkumember(models.Model):
-    hkuid = models.CharField(max_length=10)
-    name = models.CharField(max_length=150)   
+    hkuid=models.BigIntegerField()
+    name=models.CharField(max_length=150)
+    def _str_(self):
+        return f'{self.hkuid}'
 
-def __str__(self):
-    return self.venuecode
+class entryrecord(models.Model):
+    hkuid = models.ManyToManyField(hkumember)    
+    venuecode = models.ManyToManyField(venue)
+    time = models.DateTimeField()
+    status =  models.CharField(max_length=10)
+    def _str_(self):
+        return f'{self.hkuid}({self.time})'
 
-def __str__(self):
-    return self.hkuid
 
 class CustomUser(AbstractUser):
     is_device = models.BooleanField(default=False)
