@@ -1,6 +1,6 @@
 from dataclasses import field
 from rest_framework import serializers
-from . models import venue, hkumember
+from . models import entryrecord, venue, hkumember
 
 class venueSerializer(serializers.ModelSerializer):
     class Meta:
@@ -11,3 +11,8 @@ class hkumemberSerializer(serializers.ModelSerializer):
     class Meta:
         model = hkumember
         fields= '__all__'
+
+class entrySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = entryrecord
+        fields = '__all__'

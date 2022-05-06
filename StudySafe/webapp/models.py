@@ -1,4 +1,3 @@
-from unicodedata import name
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -13,16 +12,17 @@ class venue(models.Model):
 class hkumember(models.Model):
     hkuid=models.BigIntegerField()
     name=models.CharField(max_length=150)
-    def _str_(self):
-        return f'{self.hkuid}'
+    
+    def __str__(self):
+        return str(self.hkuid)
 
 class entryrecord(models.Model):
-    hkuid = models.ManyToManyField(hkumember)    
-    venuecode = models.ManyToManyField(venue)
+    hkuid = models.ForeignKey(hkumember, on_delete=models.CASCADE, default="")   
+    venuecode = models.ForeignKey(venue, on_delete=models.CASCADE, default="")
     time = models.DateTimeField()
     status =  models.CharField(max_length=10)
-    def _str_(self):
-        return f'{self.hkuid}({self.time})'
+    def __str__(self):
+        return f'{self.hkuid.hkuid} ({self.status}) ({self.time})'
 
 
 class CustomUser(AbstractUser):

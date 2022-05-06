@@ -22,4 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('venue/', views.venueList.as_view()),
     path('hkumember/', views.hkumemberList.as_view()),
+    path('entry/', views.entryList.as_view()),
+
 ]
